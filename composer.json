@@ -1,0 +1,21 @@
+{
+    "name": "mfajfr/smswizz-api",
+    "description": "API for communication with SMSwizz",
+    "type": "library",
+    "require": {
+        "nesbot/carbon": "^2.24",
+        "fzaninotto/faker": "^1.8",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Smswizz\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ing. Marek Fajfr",
+            "email": "mfajfr90@gmail.com"
+        }
+    ]
+}
