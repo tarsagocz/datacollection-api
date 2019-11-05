@@ -1,6 +1,6 @@
 {
-    "name": "mfajfr/smswizz-api",
-    "description": "API for communication with SMSwizz",
+    "name": "mfajfr/datacollection-api",
+    "description": "API for communication with DataCollection",
     "type": "library",
     "require": {
         "nesbot/carbon": "^2.24",
