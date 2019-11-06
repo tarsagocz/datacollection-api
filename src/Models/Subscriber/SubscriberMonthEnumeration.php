@@ -4,7 +4,7 @@
  * Created at: 14:24 30.10.2019
  */
 
-namespace Smswizz\Models\Subscriber;
+namespace DataCollection\Models\Subscriber;
 
 class SubscriberMonthEnumeration
 {

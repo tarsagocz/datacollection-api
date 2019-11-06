@@ -4,10 +4,10 @@
  * Created at: 9:28 26.09.2019
  */
 
-namespace Smswizz\Models;
+namespace DataCollection\Models;
 
 use Carbon\Carbon;
-use Smswizz\Connection;
+use DataCollection\Connection;
 
 class AbstractModel
 {

@@ -4,7 +4,7 @@
  * Created at: 15:51 25.09.2019
  */
 
-namespace Smswizz;
+namespace DataCollection;
 
 class Configuration
 {

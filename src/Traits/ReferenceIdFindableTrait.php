@@ -4,9 +4,9 @@
  * Created at: 13:02 26.09.2019
  */
 
-namespace Smswizz\Traits;
+namespace DataCollection\Traits;
 
-use Smswizz\Connection;
+use DataCollection\Connection;
 
 trait ReferenceIdFindableTrait
 {

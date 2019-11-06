@@ -4,7 +4,7 @@
  * Created at: 15:24 27.09.2019
  */
 
-namespace Smswizz;
+namespace DataCollection;
 
 class ConnectionStatusEnumeration
 {

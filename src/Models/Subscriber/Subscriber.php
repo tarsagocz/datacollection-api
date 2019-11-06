@@ -4,16 +4,16 @@
  * Created at: 10:34 24.09.2019
  */
 
-namespace Smswizz\Models\Subscriber;
+namespace DataCollection\Models\Subscriber;
 
 use Carbon\Carbon;
 use Faker\Factory;
-use Smswizz\Connection;
-use Smswizz\Models\AbstractModel;
-use Smswizz\Traits\ReferenceIdFindableTrait;
-use Smswizz\Traits\StoreTrait;
-use Smswizz\Traits\UidFindableTrait;
-use Smswizz\Traits\UpdateTrait;
+use DataCollection\Connection;
+use DataCollection\Models\AbstractModel;
+use DataCollection\Traits\ReferenceIdFindableTrait;
+use DataCollection\Traits\StoreTrait;
+use DataCollection\Traits\UidFindableTrait;
+use DataCollection\Traits\UpdateTrait;
 
 class Subscriber extends AbstractModel implements \JsonSerializable
 {

@@ -4,9 +4,9 @@
  * Created at: 9:23 27.09.2019
  */
 
-namespace Smswizz\Models\Subscriber;
+namespace DataCollection\Models\Subscriber;
 
-use Smswizz\Traits\HasManyTrait;
+use DataCollection\Traits\HasManyTrait;
 
 trait SubscribersTrait
 {

@@ -4,7 +4,7 @@
  * Created at: 15:53 25.09.2019
  */
 
-namespace Smswizz;
+namespace DataCollection;
 
 use GuzzleHttp\Client;
 
