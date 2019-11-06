@@ -168,7 +168,7 @@ class Subscriber extends AbstractModel implements \JsonSerializable
      * @param Carbon|null $updated_at
      * @param Carbon|null $deleted_at
      */
-    public function __construct(string $account_id, string $list, ?int $id, ?string $uid, ?int $birth_year, ?int $birth_month, ?int $birth_day, ?int $age, ?string $zip_code, ?string $city, ?string $street, ?float $population_size, ?string $first_name, ?string $sur_name, ?string $gender, ?string $phone, ?string $email, ?int $household_members, ?bool $kids_3, ?bool $kids_4_6, ?bool $kids_7_12, ?bool $kids_13_17, ?string $economical_status, ?int $household_income, ?bool $car, ?bool $house, ?bool $smartphone, ?bool $data_plan, ?string $internet_usage, ?Carbon $created_at = null, ?Carbon $updated_at = null, ?Carbon $deleted_at = null)
+    public function __construct(string $account_id, string $list, ?int $id = null, ?string $uid = null, ?int $birth_year = null, ?int $birth_month = null, ?int $birth_day = null, ?int $age = null, ?string $zip_code = null, ?string $city = null, ?string $street = null, ?float $population_size = null, ?string $first_name = null, ?string $sur_name = null, ?string $gender = null, ?string $phone = null, ?string $email = null, ?int $household_members = null, ?bool $kids_3 = null, ?bool $kids_4_6 = null, ?bool $kids_7_12 = null, ?bool $kids_13_17 = null, ?string $economical_status = null, ?int $household_income = null, ?bool $car = null, ?bool $house = null, ?bool $smartphone = null, ?bool $data_plan = null, ?string $internet_usage = null, ?Carbon $created_at = null, ?Carbon $updated_at = null, ?Carbon $deleted_at = null)
     {
         parent::__construct($id, $uid, $created_at, $updated_at, $deleted_at);
         $this->account_id = $account_id;
