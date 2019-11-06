@@ -80,4 +80,53 @@ class AbstractModel
     {
         return json_decode(static::method(self::COUNT_METHOD, $params), true)['count'];
     }
+
+    /**
+     * @param $name
+     * @return mixed
+     * @throws \Exception
+     */
+    public function __get($name)
+    {
+        if ($this->__isset($name)) {
+            return $this->$name;
+        }
+        throw new \Exception('Property [' . $name .  ']  doesn\'t exist');
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     * @return mixed
+     * @throws \Exception
+     */
+    public function __set($name, $value)
+    {
+        if ($this->__isset($name)) {
+            $this->$name = $value;
+        }
+//        throw new \Exception('Property [' . $name .  ']  doesn\'t exist');
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     * @return mixed
+     * @throws \Exception
+     */
+    public function set($name, $value)
+    {
+        if ($this->__isset($name)) {
+            $this->$name = $value;
+        }
+    }
+
+    /**
+     * @param $name
+     * @return bool
+     */
+    public function __isset($name)
+    {
+        return property_exists(static::class, $name);
+    }
 }

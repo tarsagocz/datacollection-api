@@ -8,10 +8,12 @@ namespace Smswizz\Models\Subscriber;
 
 use Carbon\Carbon;
 use Faker\Factory;
+use Smswizz\Connection;
 use Smswizz\Models\AbstractModel;
 use Smswizz\Traits\ReferenceIdFindableTrait;
 use Smswizz\Traits\StoreTrait;
 use Smswizz\Traits\UidFindableTrait;
+use Smswizz\Traits\UpdateTrait;
 
 class Subscriber extends AbstractModel implements \JsonSerializable
 {
@@ -220,7 +222,7 @@ class Subscriber extends AbstractModel implements \JsonSerializable
             'population_size'   => $this->population_size,
             'first_name'        => $this->first_name,
             'sur_name'          => $this->sur_name,
-            'gender'            => $this->gender,
+            'gender'            => mb_strtoupper($this->gender),
             'phone'             => $this->phone,
             'email'             => $this->email,
             'household_members' => $this->household_members,
@@ -251,7 +253,7 @@ class Subscriber extends AbstractModel implements \JsonSerializable
         $birth->subMonths(rand(6, 10));
         $birth->subDays(rand(10, 20));
 
-        return new Subscriber($faker->numberBetween(100000, 999999), self::lists()[array_rand(self::lists())], null, null, $birth->year, $birth->month, $birth->day, null, $faker->postcode, $faker->city, $faker->streetAddress, null, $faker->firstName, $faker->lastName, array_rand(SubscriberGenderEnumeration::ENUM), $faker->phoneNumber, $faker->email, $faker->numberBetween(1, 4), $faker->boolean, $faker->boolean, $faker->boolean, $faker->boolean, array_rand(SubscriberEconomicalStatusEnumeration::ENUM), $faker->numberBetween(10, 100), $faker->boolean, $faker->boolean, $faker->boolean, $faker->boolean, array_rand(SubscriberInternetUsageEnumeration::ENUM));
+        return new Subscriber($faker->numberBetween(100000, 999999), self::lists()[array_rand(self::lists())], null, null, $birth->year, $birth->month, $birth->day, null, rand(10000, 99999), $faker->city, $faker->streetAddress, null, $faker->firstName, $faker->lastName, array_rand(SubscriberGenderEnumeration::ENUM), $faker->phoneNumber, $faker->email, $faker->numberBetween(1, 4), $faker->boolean, $faker->boolean, $faker->boolean, $faker->boolean, array_rand(SubscriberEconomicalStatusEnumeration::ENUM), $faker->numberBetween(10, 100), $faker->boolean, $faker->boolean, $faker->boolean, $faker->boolean, array_rand(SubscriberInternetUsageEnumeration::ENUM));
     }
 
     public static function lists($refresh = false)
@@ -261,5 +263,19 @@ class Subscriber extends AbstractModel implements \JsonSerializable
         }
 
         return self::$LISTS;
+    }
+
+    public function updateByListAndAccountId()
+    {
+        $result = json_decode(Connection::patch(static::VERSION . '/'  . static::MODEL . '/' . $this->list .  '/' . $this->account_id . '/update', $this->jsonSerialize())->getBody()->getContents(), true);
+        $result[static::MODEL] = static::create($result[static::MODEL]);
+        return $result;
+    }
+
+    public static function findByListAndAccountId($list, $account_id)
+    {
+        $result = json_decode(Connection::get(static::VERSION . '/'  . static::MODEL . '/' . $list .  '/' . $account_id . '/find')->getBody()->getContents(), true);
+        $result[static::MODEL] = static::create($result[static::MODEL]);
+        return $result;
     }
 }
